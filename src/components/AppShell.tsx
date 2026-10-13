@@ -1,4 +1,4 @@
-import { Link, Outlet } from '@tanstack/react-router'
+import { Link, Outlet, useMatches } from '@tanstack/react-router'
 import { ThemeToggle } from './ThemeToggle'
 
 function Logo() {
@@ -17,6 +17,9 @@ const navLink =
   'inline-flex min-h-11 items-center text-[15px] font-bold text-surface-inverse-text no-underline opacity-80 hover:opacity-100 [&.active]:opacity-100 [&.active]:underline [&.active]:decoration-accent [&.active]:decoration-[3px] [&.active]:underline-offset-8'
 
 export function AppShell() {
+  const fullScreen = useMatches({ select: (matches) => matches.some((m) => m.staticData.fullScreen) })
+  if (fullScreen) return <Outlet />
+
   return (
     <div className="flex min-h-dvh flex-col">
       <header className="bg-surface-inverse">

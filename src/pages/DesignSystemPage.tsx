@@ -1,12 +1,14 @@
 import { useState, type ReactNode } from 'react'
 import {
   Avatar,
+  BrandLockup,
   Button,
   CourtCard,
   Icon,
   LevelBadge,
   MatchCard,
   OpenSpot,
+  PhoneField,
   SearchField,
   SegmentedControl,
   StatusBadge,
@@ -71,6 +73,12 @@ export function DesignSystemPage() {
         </div>
       </Section>
 
+      <Section title="Brand">
+        <div className="flex rounded-lg bg-primary p-6">
+          <BrandLockup />
+        </div>
+      </Section>
+
       <Section title="Type">
         <div className="flex flex-col gap-3">
           <p className="type-display-xl m-0">Game on</p>
@@ -87,6 +95,7 @@ export function DesignSystemPage() {
           <Button>Join match</Button>
           <Button variant="accent">Book court</Button>
           <Button variant="secondary">Invite</Button>
+          <Button variant="outline">Continue with Google</Button>
           <Button variant="ghost">See all</Button>
           <Button variant="danger">Cancel match</Button>
           <Button disabled>Join match</Button>
@@ -135,6 +144,8 @@ export function DesignSystemPage() {
           <TextField label="Phone" defaultValue="01 2345" error="Enter a valid phone number" />
           <TextField label="Club" defaultValue="Set at booking" disabled helper="Disabled" />
           <SearchField label="Search clubs or courts" className="self-end" />
+          <PhoneField label="Phone number" placeholder="Your mobile number" helper="We text you a 6-digit code." />
+          <PhoneField label="Phone number" defaultValue="0123" error="Enter a valid phone number" />
         </div>
       </Section>
 
