@@ -1,5 +1,5 @@
 // Generates src/styles/tokens.css from docs/design-system/tokens.json.
-// tokens.json is the single source of truth: edit it, then run `npm run tokens`.
+// tokens.json is the single source of truth: edit it, then run `pnpm tokens`.
 import { readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'

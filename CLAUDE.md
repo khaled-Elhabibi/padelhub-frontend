@@ -1,13 +1,13 @@
-# Padelhup frontend
+# Padelhub frontend
 
 Vite + React 19 + TypeScript + TanStack Router + Tailwind CSS v4.
 
 ## Commands
 
-- `npm run dev` — dev server on port 5173
-- `npm run build` — typecheck and production build
-- `npm run typecheck` — TypeScript only
-- `npm run tokens` — regenerate `src/styles/tokens.css` from `docs/design-system/tokens.json`
+- `pnpm start` — dev server on port 5173
+- `pnpm build` — typecheck and production build
+- `pnpm typecheck` — TypeScript only
+- `pnpm tokens` — regenerate `src/styles/tokens.css` from `docs/design-system/tokens.json`
 
 ## Design system (read before any UI work)
 
@@ -17,7 +17,7 @@ The Padel design system lives in `docs/design-system/`:
 - `tokens.json` — the single source of truth for colors (light and dark), type styles, radii and shadows.
 - `components/*.md` — guidelines for each component.
 
-`src/styles/tokens.css` is GENERATED. Never edit it by hand: change `tokens.json`, then run `npm run tokens`.
+`src/styles/tokens.css` is GENERATED. Never edit it by hand: change `tokens.json`, then run `pnpm tokens`.
 
 ### Rules
 
