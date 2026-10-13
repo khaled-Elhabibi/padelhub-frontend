@@ -12,7 +12,7 @@ export function LanguageSwitch({ className }: { className?: string }) {
     <button
       type="button"
       lang={next}
-      title={t('language.label')}
+      title={t('languageLabel')}
       onClick={() => setLanguage(next)}
       className={cx('flex h-11 cursor-pointer items-center rounded-sm bg-transparent px-3 font-sans text-base font-bold', className)}
     >

@@ -33,8 +33,8 @@ The Padel design system lives in `docs/design-system/`:
 
 ### Languages (English and Arabic)
 
-- Every visible string, `aria-label` and `title` goes through i18next: `const { t } = useTranslation()` then `t('signIn.title')`. Never hard-code UI copy.
-- Locales live in `src/i18n/locales/`. Keys are **flat** strings with a dotted prefix per screen or component (`'signIn.title'`, `'match.spots_one'`); `keySeparator` is off. `en.ts` is the source: add the key there first, then to `ar.ts` (the types fail if Arabic is missing a key).
+- Every visible string, `aria-label` and `title` goes through i18next: `const { t } = useTranslation()` then `t('signInTitle')`. Never hard-code UI copy.
+- Locales live in `src/i18n/locales/`. Keys are **flat camelCase** with the screen or component as prefix (`signInTitle`, `matchSpots_one`). No dots, no nesting. `en.ts` is the source: add the key there first, then to `ar.ts` (the types fail if Arabic is missing a key).
 - Copy with links or markup uses `<Trans i18nKey="…" components={{ … }} />` with named tags in the string (`<terms>Terms</terms>`).
 - Counts use plural keys (`_one`, `_other`; Arabic also `_zero`, `_two`, `_few`, `_many`) and `t('key', { count })`.
 - Arabic sets `<html dir="rtl">`. Use logical utilities only: `ms-*`/`me-*`, `ps-*`/`pe-*`, `start-*`/`end-*`, `text-start`/`text-end`, `rounded-s-*`/`rounded-e-*`. Never `ml-*`, `left-*`, `text-left` and the like. Phone numbers, codes and other LTR data get `dir="ltr"`.

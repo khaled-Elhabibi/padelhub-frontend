@@ -47,7 +47,7 @@ export function MatchCard({
   className,
 }: MatchCardProps) {
   const { t } = useTranslation()
-  const formatLabel = format ?? t('match.doubles')
+  const formatLabel = format ?? t('matchDoubles')
   const spotsLeft = Math.max(capacity - players.length, 0)
   const full = spotsLeft === 0
 
@@ -61,9 +61,9 @@ export function MatchCard({
         {full ? (
           <StatusBadge status="full" />
         ) : spotsLeft === 1 ? (
-          <StatusBadge status="almost-full">{t('match.spotsLeft', { count: spotsLeft })}</StatusBadge>
+          <StatusBadge status="almost-full">{t('matchSpotsLeft', { count: spotsLeft })}</StatusBadge>
         ) : (
-          <StatusBadge status="open">{t('match.spots', { count: spotsLeft })}</StatusBadge>
+          <StatusBadge status="open">{t('matchSpots', { count: spotsLeft })}</StatusBadge>
         )}
       </div>
       <p className="m-0 text-[15px] font-semibold text-text-body">{venue}</p>
@@ -71,7 +71,7 @@ export function MatchCard({
         {levelRange && <Tag tone="primary">{levelRange}</Tag>}
         {formatLabel && <Tag>{formatLabel}</Tag>}
       </div>
-      <ul className="m-0 flex list-none gap-3 px-0 py-1.5" aria-label={t('match.players')}>
+      <ul className="m-0 flex list-none gap-3 px-0 py-1.5" aria-label={t('matchPlayers')}>
         {players.map((p, i) => (
           <li key={`${p.initials}-${i}`} className="flex flex-col items-center gap-1.5 text-xs font-bold text-text-muted">
             <Avatar initials={p.initials} name={p.name} tone={p.tone ?? toneCycle[i % toneCycle.length]} />
@@ -81,17 +81,17 @@ export function MatchCard({
         {Array.from({ length: spotsLeft }, (_, i) => (
           <li key={`open-${i}`} className="flex flex-col items-center gap-1.5 text-xs font-bold text-text-muted">
             <OpenSpot />
-            <span aria-hidden="true">{t('match.open')}</span>
+            <span aria-hidden="true">{t('matchOpen')}</span>
           </li>
         ))}
       </ul>
       <div className="mt-auto flex items-center justify-between gap-3 border-t-[1.5px] border-border pt-4">
         <p className="m-0 flex items-baseline gap-1">
           <span className="type-numeric-m leading-7">{pricePerPlayer}</span>
-          <span className="text-xs font-bold text-text-muted">{t('match.perPlayer')}</span>
+          <span className="text-xs font-bold text-text-muted">{t('matchPerPlayer')}</span>
         </p>
         <Button onClick={onJoin} disabled={full}>
-          {full ? t('match.full') : (joinLabel ?? t('match.join'))}
+          {full ? t('matchFull') : (joinLabel ?? t('matchJoin'))}
         </Button>
       </div>
     </article>

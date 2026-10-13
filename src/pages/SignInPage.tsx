@@ -55,8 +55,8 @@ export function SignInPage() {
         <BrandCourt />
         <BrandLockup className="relative" />
         <div className="relative flex flex-col gap-3">
-          <p className="type-display-l sm:type-display-xl m-0">{t('signIn.hero')}</p>
-          <p className="m-0 max-w-[420px] text-lg font-bold">{t('signIn.heroLede')}</p>
+          <p className="type-display-l sm:type-display-xl m-0">{t('signInHero')}</p>
+          <p className="m-0 max-w-[420px] text-lg font-bold">{t('signInHeroLede')}</p>
         </div>
       </section>
 
@@ -67,17 +67,17 @@ export function SignInPage() {
 
         <div className="m-auto flex w-full max-w-[400px] flex-col gap-4">
           <div className="flex flex-col gap-2">
-            <h1 className="type-display-m m-0">{t('signIn.title')}</h1>
-            <p className="type-body-m m-0 text-text-body">{t('signIn.intro')}</p>
+            <h1 className="type-display-m m-0">{t('signInTitle')}</h1>
+            <p className="type-body-m m-0 text-text-body">{t('signInIntro')}</p>
           </div>
 
           <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-4 rounded-lg bg-surface-raised p-5 shadow-2 sm:p-6">
             <PhoneField
-              label={t('signIn.phoneLabel')}
+              label={t('signInPhoneLabel')}
               name="phone"
-              placeholder={t('signIn.phonePlaceholder')}
-              helper={t('signIn.phoneHelper')}
-              error={showError && !phoneE164 ? t('signIn.phoneInvalid') : undefined}
+              placeholder={t('signInPhonePlaceholder')}
+              helper={t('signInPhoneHelper')}
+              error={showError && !phoneE164 ? t('signInPhoneInvalid') : undefined}
               value={phone}
               onChange={(e) => {
                 setPhone(e.target.value)
@@ -87,31 +87,31 @@ export function SignInPage() {
 
             <div className="flex flex-col gap-2">
               <Button type="submit" variant="accent" size="lg" fullWidth disabled={sending} aria-busy={sending} className="tracking-[0.02em]">
-                {sending ? t('signIn.sendingCode') : t('signIn.sendCode')}
+                {sending ? t('signInSendingCode') : t('signInSendCode')}
               </Button>
               {status === 'failed' && (
                 <p role="alert" className="m-0 flex items-center gap-1.5 text-sm font-bold text-danger">
                   <Icon name="alert" size={16} strokeWidth={2.4} className="flex-none" />
-                  {t('signIn.sendFailed')}
+                  {t('signInSendFailed')}
                 </p>
               )}
             </div>
 
             <div className="flex items-center gap-3 before:h-px before:flex-1 before:bg-border after:h-px after:flex-1 after:bg-border">
-              <span className="type-caption text-text-muted">{t('signIn.or')}</span>
+              <span className="type-caption text-text-muted">{t('signInOr')}</span>
             </div>
 
             <Button variant="outline" size="lg" fullWidth className="gap-3 tracking-[0.02em] max-sm:px-4" onClick={() => void signInWithGoogle()}>
               {/* TODO: replace this slot with Google's official "G" mark (per Google's branding guidelines). */}
               <span aria-hidden="true" className="size-6 flex-none rounded-pill border-2 border-dashed border-border-strong" />
-              {t('signIn.google')}
+              {t('signInGoogle')}
             </Button>
           </form>
 
           <p className="m-0 text-center text-sm text-text-muted">
             {/* TODO: point these at the Terms and Privacy policy routes once they exist. */}
             <Trans
-              i18nKey="signIn.legal"
+              i18nKey="signInLegal"
               components={{
                 terms: <a href="#" className="text-primary underline hover:text-primary-hover" />,
                 privacy: <a href="#" className="text-primary underline hover:text-primary-hover" />,

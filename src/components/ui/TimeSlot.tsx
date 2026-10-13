@@ -15,13 +15,13 @@ export interface TimeSlotProps extends Omit<ButtonHTMLAttributes<HTMLButtonEleme
   compact?: boolean
 }
 
-const defaultNote = { available: 'slot.available', peak: 'slot.peak', booked: 'slot.booked' } as const
+const defaultNote = { available: 'slotAvailable', peak: 'slotPeak', booked: 'slotBooked' } as const
 
 /** Bookable start time. Selected uses aria-pressed; booked is disabled and struck through. */
 export function TimeSlot({ time, state = 'available', selected = false, note, compact, className, ...props }: TimeSlotProps) {
   const { t } = useTranslation()
   const booked = state === 'booked'
-  const label = selected && !note ? t('slot.selected') : (note ?? t(defaultNote[state]))
+  const label = selected && !note ? t('slotSelected') : (note ?? t(defaultNote[state]))
 
   const tone = booked
     ? 'border-disabled-bg bg-disabled-bg text-disabled-text cursor-not-allowed'

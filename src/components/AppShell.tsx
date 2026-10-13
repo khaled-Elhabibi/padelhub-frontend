@@ -28,15 +28,15 @@ export function AppShell() {
       <header className="bg-surface-inverse">
         <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-x-8 gap-y-3 px-4 py-3 sm:px-6">
           <Logo />
-          <nav aria-label={t('nav.primary')} className="flex flex-wrap items-center gap-x-7">
+          <nav aria-label={t('navPrimary')} className="flex flex-wrap items-center gap-x-7">
             <Link to="/" className={navLink} activeOptions={{ exact: true }}>
-              {t('nav.home')}
+              {t('navHome')}
             </Link>
             <Link to="/design" className={navLink}>
-              {t('nav.design')}
+              {t('navDesign')}
             </Link>
             <Link to="/about" className={navLink}>
-              {t('nav.about')}
+              {t('navAbout')}
             </Link>
           </nav>
           <div className="flex items-center gap-2">

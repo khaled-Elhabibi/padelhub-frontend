@@ -7,14 +7,14 @@ export function ThemeToggle() {
   const [theme, setTheme] = useTheme()
   return (
     <SegmentedControl<ThemePreference>
-      label={t('theme.label')}
+      label={t('themeLabel')}
       size="sm"
       value={theme}
       onChange={setTheme}
       options={[
-        { value: 'light', label: <Icon name="sun" size={18} />, ariaLabel: t('theme.light') },
-        { value: 'dark', label: <Icon name="moon" size={18} />, ariaLabel: t('theme.dark') },
-        { value: 'system', label: t('theme.auto'), ariaLabel: t('theme.system') },
+        { value: 'light', label: <Icon name="sun" size={18} />, ariaLabel: t('themeLight') },
+        { value: 'dark', label: <Icon name="moon" size={18} />, ariaLabel: t('themeDark') },
+        { value: 'system', label: t('themeAuto'), ariaLabel: t('themeSystem') },
       ]}
     />
   )

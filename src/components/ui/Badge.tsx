@@ -4,14 +4,14 @@ import { cx } from '../../lib/cx'
 
 export type MatchStatus = 'open' | 'full' | 'confirmed' | 'almost-full' | 'cancelled'
 
-type StatusKey = 'status.open' | 'status.full' | 'status.confirmed' | 'status.almostFull' | 'status.cancelled'
+type StatusKey = 'statusOpen' | 'statusFull' | 'statusConfirmed' | 'statusAlmostFull' | 'statusCancelled'
 
 const statusStyles: Record<MatchStatus, { className: string; label: StatusKey }> = {
-  open: { className: 'bg-primary-tint text-primary-tint-text', label: 'status.open' },
-  full: { className: 'bg-disabled-bg text-text', label: 'status.full' },
-  confirmed: { className: 'bg-success-bg text-success', label: 'status.confirmed' },
-  'almost-full': { className: 'bg-warning-bg text-warning', label: 'status.almostFull' },
-  cancelled: { className: 'bg-danger-bg text-danger', label: 'status.cancelled' },
+  open: { className: 'bg-primary-tint text-primary-tint-text', label: 'statusOpen' },
+  full: { className: 'bg-disabled-bg text-text', label: 'statusFull' },
+  confirmed: { className: 'bg-success-bg text-success', label: 'statusConfirmed' },
+  'almost-full': { className: 'bg-warning-bg text-warning', label: 'statusAlmostFull' },
+  cancelled: { className: 'bg-danger-bg text-danger', label: 'statusCancelled' },
 }
 
 export interface StatusBadgeProps {
@@ -38,7 +38,7 @@ export function StatusBadge({ status, children, className }: StatusBadgeProps) {
 }
 
 export interface LevelBand {
-  /** Shown as the badge's tooltip. The default bands are translated through `level.<name>` keys. */
+  /** Shown as the badge's tooltip. The default bands are translated through `level<Name>` keys. */
   name: string
   /** Inclusive lower bound. */
   min: number
@@ -71,7 +71,7 @@ export function LevelBadge({ level, bands, size = 'md', className }: LevelBadgeP
   const band = levelBand(level, bands)
   return (
     <span
-      title={t(`level.${band.name}` as 'level.Starter', { defaultValue: band.name })}
+      title={t(`level${band.name}` as 'levelStarter', { defaultValue: band.name })}
       className={cx(
         'inline-flex items-center rounded-pill font-display font-bold tabular-nums',
         size === 'md' ? 'px-3.5 py-0.5 text-2xl leading-7' : 'px-2.5 text-lg leading-6',

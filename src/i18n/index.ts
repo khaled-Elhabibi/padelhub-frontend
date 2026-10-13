@@ -44,7 +44,7 @@ void i18n.use(initReactI18next).init({
   fallbackLng: 'en',
   supportedLngs: ['en', 'ar'],
   initAsync: false,
-  keySeparator: false, // Keys are flat strings such as 'signIn.title'.
+  keySeparator: false, // Keys are flat strings such as 'signInTitle'.
   interpolation: { escapeValue: false }, // React already escapes.
 })
 

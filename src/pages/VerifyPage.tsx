@@ -9,21 +9,21 @@ export function VerifyPage() {
 
   return (
     <main className="mx-auto flex min-h-dvh max-w-[400px] flex-col justify-center gap-4 px-4 py-16">
-      <h1 className="type-display-m m-0">{t('verify.title')}</h1>
+      <h1 className="type-display-m m-0">{t('verifyTitle')}</h1>
       <p className="type-body-m m-0 text-text-body">
         {phone ? (
           <Trans
-            i18nKey="verify.sentTo"
+            i18nKey="verifySentTo"
             values={{ phone }}
             components={{ phone: <span dir="ltr" className="font-bold whitespace-nowrap text-text" /> }}
           />
         ) : (
-          t('verify.missingPhone')
+          t('verifyMissingPhone')
         )}
       </p>
-      <p className="type-body-m m-0 text-text-muted">{t('verify.notDesigned')}</p>
+      <p className="type-body-m m-0 text-text-muted">{t('verifyNotDesigned')}</p>
       <Link to="/sign-in" className={buttonClasses({ variant: 'secondary' })}>
-        {t('verify.changeNumber')}
+        {t('verifyChangeNumber')}
       </Link>
     </main>
   )

@@ -53,7 +53,7 @@ export function CourtCard({
       <div className="relative">
         <CourtArt tone={courtTone ?? (surface === 'Indoor' ? 'court-900' : 'court-700')} />
         <span className="absolute start-3.5 top-3.5 rounded-pill bg-surface-raised px-3 py-1.5 text-xs font-extrabold tracking-[0.06em] text-text uppercase">
-          {t(`court.${surface}`)}
+          {t(`court${surface}`)}
         </span>
       </div>
       <div className="flex flex-1 flex-col gap-3.5 p-5">
@@ -61,7 +61,7 @@ export function CourtCard({
           <h3 className="type-title-m m-0">{clubName}</h3>
           <p className="m-0 flex shrink-0 items-baseline gap-1">
             <span className="type-numeric-m leading-7">{price}</span>
-            <span className="text-xs font-bold text-text-muted">{priceUnit ?? t('court.per90')}</span>
+            <span className="text-xs font-bold text-text-muted">{priceUnit ?? t('courtPer90')}</span>
           </p>
         </div>
         <p className="m-0 flex items-center gap-2 text-sm font-semibold text-text-muted">
@@ -69,7 +69,7 @@ export function CourtCard({
           {meta}
         </p>
         {slots.length > 0 && (
-          <div className="flex gap-2" role="group" aria-label={t('court.startTimes')}>
+          <div className="flex gap-2" role="group" aria-label={t('courtStartTimes')}>
             {slots.map((slot) => (
               <TimeSlot
                 key={slot.time}
@@ -83,7 +83,7 @@ export function CourtCard({
           </div>
         )}
         <Button variant={accent ? 'accent' : 'primary'} fullWidth className="mt-auto h-[52px]" onClick={onBook}>
-          {bookLabel ?? t('court.book')}
+          {bookLabel ?? t('courtBook')}
         </Button>
       </div>
     </article>
