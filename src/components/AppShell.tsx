@@ -8,7 +8,7 @@ function Logo() {
         <circle cx="20" cy="20" r="20" className="fill-accent" />
         <path d="M8 9c7 4 7 18 0 22M32 9c-7 4-7 18 0 22" fill="none" strokeWidth="2.5" strokeLinecap="round" className="stroke-on-accent" />
       </svg>
-      <span className="font-display text-3xl font-extrabold tracking-[0.06em] uppercase italic">Padelhup</span>
+      <span className="font-display text-3xl font-extrabold tracking-[0.06em] uppercase italic">Padelhub</span>
     </Link>
   )
 }

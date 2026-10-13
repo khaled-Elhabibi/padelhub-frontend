@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 export type ThemePreference = 'light' | 'dark' | 'system'
 
 // Keep the key and logic in sync with the inline script in index.html.
-const STORAGE_KEY = 'padelhup-theme'
+const STORAGE_KEY = 'padelhub-theme'
 const DARK_QUERY = '(prefers-color-scheme: dark)'
 
 export function getStoredTheme(): ThemePreference {
