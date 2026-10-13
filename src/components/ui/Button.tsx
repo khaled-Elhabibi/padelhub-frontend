@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes } from 'react'
 import { cx } from '../../lib/cx'
 
-export type ButtonVariant = 'primary' | 'accent' | 'secondary' | 'secondary-inverse' | 'ghost' | 'danger'
+export type ButtonVariant = 'primary' | 'accent' | 'secondary' | 'outline' | 'secondary-inverse' | 'ghost' | 'danger'
 export type ButtonSize = 'sm' | 'md' | 'lg'
 
 const base =
@@ -18,6 +18,9 @@ const variants: Record<ButtonVariant, string> = {
   accent: `bg-accent text-on-accent enabled:hover:bg-accent-pressed enabled:active:bg-accent-pressed ${filledDisabled}`,
   secondary:
     'border-2 border-text bg-transparent text-text enabled:hover:bg-disabled-bg enabled:active:bg-disabled-bg disabled:border-border',
+  // Quieter secondary on a raised card, next to an accent or primary action (sign-in).
+  outline:
+    'border-2 border-border-strong bg-surface-raised text-text enabled:hover:bg-surface enabled:active:bg-surface disabled:border-border',
   // Outline button for dark bands (hero, footer) on surface-inverse.
   'secondary-inverse':
     'border-2 border-surface-inverse-text bg-transparent text-surface-inverse-text enabled:hover:bg-surface-inverse-text/10 disabled:border-border',

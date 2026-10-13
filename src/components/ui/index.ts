@@ -10,11 +10,13 @@ export {
   type StatusBadgeProps,
   type LevelBadgeProps,
 } from './Badge'
+export { BrandLockup, type BrandLockupProps } from './BrandLockup'
 export { Button, buttonClasses, type ButtonProps, type ButtonVariant, type ButtonSize } from './Button'
 export { CourtArt, type CourtTone } from './CourtArt'
 export { CourtCard, type CourtCardProps, type CourtSlot } from './CourtCard'
 export { TextField, SearchField, type TextFieldProps, type SearchFieldProps } from './Field'
 export { Icon, type IconName, type IconProps } from './Icon'
 export { MatchCard, type MatchCardProps, type MatchPlayer } from './MatchCard'
+export { PhoneField, type PhoneFieldProps } from './PhoneField'
 export { SegmentedControl, type SegmentedControlProps, type SegmentedOption } from './SegmentedControl'
 export { TimeSlot, type TimeSlotProps, type SlotState } from './TimeSlot'

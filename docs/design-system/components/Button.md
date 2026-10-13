@@ -1,10 +1,11 @@
-Pill-shaped action control in five variants: primary, accent, secondary, ghost and danger.
+Pill-shaped action control in six variants: primary, accent, secondary, outline, ghost and danger.
 
 ## When to use
 
 - **Primary** (`primary`, `on-primary`): the main action on a card or form, such as Join match or Pay now.
 - **Accent** (`accent`, `on-accent`): the single booking action on a screen, such as Book court. Once per screen.
 - **Secondary** (2 px `text` outline): a second action next to a primary, such as Invite.
+- **Outline** (2 px `border-strong` edge on `surface-raised`, `text` label; hover `surface`): a quieter second action inside a raised card, such as Continue with Google under Send code.
 - **Ghost** (`primary` text, no fill): low-emphasis actions such as See all.
 - **Danger** (`danger-solid`, white text): destructive actions such as Cancel match. Confirm in a sheet first.
 
