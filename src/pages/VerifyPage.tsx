@@ -1,25 +1,29 @@
 import { Link, useRouterState } from '@tanstack/react-router'
+import { Trans, useTranslation } from 'react-i18next'
 import { buttonClasses } from '../components/ui'
 
 /** Placeholder until the code-entry screen is designed. */
 export function VerifyPage() {
+  const { t } = useTranslation()
   const phone = useRouterState({ select: (s) => s.location.state.phone })
 
   return (
     <main className="mx-auto flex min-h-dvh max-w-[400px] flex-col justify-center gap-4 px-4 py-16">
-      <h1 className="type-display-m m-0">Enter the code</h1>
+      <h1 className="type-display-m m-0">{t('verifyTitle')}</h1>
       <p className="type-body-m m-0 text-text-body">
         {phone ? (
-          <>
-            We sent a 6-digit code to <span className="font-bold whitespace-nowrap text-text">{phone}</span>.
-          </>
+          <Trans
+            i18nKey="verifySentTo"
+            values={{ phone }}
+            components={{ phone: <span dir="ltr" className="font-bold whitespace-nowrap text-text" /> }}
+          />
         ) : (
-          '[Phone number missing. Start from sign in.]'
+          t('verifyMissingPhone')
         )}
       </p>
-      <p className="type-body-m m-0 text-text-muted">[Code entry screen not designed yet.]</p>
+      <p className="type-body-m m-0 text-text-muted">{t('verifyNotDesigned')}</p>
       <Link to="/sign-in" className={buttonClasses({ variant: 'secondary' })}>
-        Change number
+        {t('verifyChangeNumber')}
       </Link>
     </main>
   )

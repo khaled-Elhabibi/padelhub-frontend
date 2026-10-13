@@ -27,19 +27,20 @@ export function PhoneField({ label, countryCode = '+20', helper, error, id, clas
         {label}
       </label>
       <div className="flex gap-2">
-        <span id={codeId} className={cx(boxBase, 'flex w-[76px] flex-none items-center justify-center border-border-strong tabular-nums')}>
+        <span id={codeId} dir="ltr" className={cx(boxBase, 'flex w-[76px] flex-none items-center justify-center border-border-strong tabular-nums')}>
           {countryCode}
         </span>
         <input
           id={inputId}
           type="tel"
+          dir="ltr"
           inputMode="numeric"
           autoComplete="tel-national"
           aria-invalid={error ? true : undefined}
           aria-describedby={cx(codeId, hasNote && noteId)}
           className={cx(
             boxBase,
-            'w-full min-w-0 flex-1 px-3.5 font-sans outline-none transition-[border-color,box-shadow] duration-[120ms]',
+            'w-full min-w-0 flex-1 px-3.5 font-sans outline-none rtl:text-right transition-[border-color,box-shadow] duration-[120ms]',
             'placeholder:font-medium placeholder:text-text-muted',
             error ? 'border-danger' : 'border-border-strong focus:border-primary focus:shadow-[0_0_0_4px_var(--primary-tint)]',
           )}

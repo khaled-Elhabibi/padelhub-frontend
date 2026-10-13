@@ -17,7 +17,7 @@ Design system for the Padel mobile app and website: finding a court, filling a m
 - **Two colors do the work.** `primary` (court blue) leads every screen. `accent` (ball lime) is the one spark per screen, reserved for the main booking action, a peak-hour highlight or the top level badge. Everything else is cool ink neutrals tinted toward the blue.
 - **Lime is a fill, never text.** `accent` on a light ground is 1.3:1. Put `on-accent` text on it, or use it as a shape.
 - **Status colors** (`success`, `warning`, `danger`) always sit beside a word or icon, never alone, and have their own `-bg` fills.
-- **Type:** Barlow Condensed (`display` family) for headlines and numerals, Manrope (`sans` family) for everything else. Display styles are italic and uppercase; numerals are upright, 700 and tabular.
+- **Type:** Barlow Condensed (`display` family) for headlines and numerals, Manrope (`sans` family) for everything else. Display styles are italic and uppercase; numerals are upright, 700 and tabular. Arabic text uses Bahij TheSansArabic (second in both stacks, so it only renders Arabic characters); it stays upright because it has no italic.
 - **Shape:** buttons, chips, badges and avatars are pills (`radius-pill`). Inputs, time slots and list rows use `radius-md`. Cards, sheets and hero panels use `radius-lg`.
 - **Depth:** `shadow-1` for rows, `shadow-2` for cards, `shadow-3` for sheets and modals. In dark mode lean on `surface-raised` against `surface` instead of shadows.
 - **Spacing:** a 4 px base. Phone screens use `space-4` margins, web cards use `space-5` padding, web sections use `space-8`.

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { cx } from '../../lib/cx'
 import { Avatar, OpenSpot, type AvatarTone } from './Avatar'
 import { StatusBadge, Tag } from './Badge'
@@ -19,6 +20,7 @@ export interface MatchCardProps {
   venue: string
   /** e.g. "Level 3.0–4.0" */
   levelRange?: string
+  /** Defaults to "Doubles". */
   format?: string
   players: MatchPlayer[]
   capacity?: number
@@ -36,14 +38,16 @@ export function MatchCard({
   timeRange,
   venue,
   levelRange,
-  format = 'Doubles',
+  format,
   players,
   capacity = 4,
   pricePerPlayer,
   onJoin,
-  joinLabel = 'Join match',
+  joinLabel,
   className,
 }: MatchCardProps) {
+  const { t } = useTranslation()
+  const formatLabel = format ?? t('matchDoubles')
   const spotsLeft = Math.max(capacity - players.length, 0)
   const full = spotsLeft === 0
 
@@ -57,17 +61,17 @@ export function MatchCard({
         {full ? (
           <StatusBadge status="full" />
         ) : spotsLeft === 1 ? (
-          <StatusBadge status="almost-full">1 spot left</StatusBadge>
+          <StatusBadge status="almost-full">{t('matchSpotsLeft', { count: spotsLeft })}</StatusBadge>
         ) : (
-          <StatusBadge status="open">{spotsLeft} spots</StatusBadge>
+          <StatusBadge status="open">{t('matchSpots', { count: spotsLeft })}</StatusBadge>
         )}
       </div>
       <p className="m-0 text-[15px] font-semibold text-text-body">{venue}</p>
       <div className="flex flex-wrap gap-2">
         {levelRange && <Tag tone="primary">{levelRange}</Tag>}
-        {format && <Tag>{format}</Tag>}
+        {formatLabel && <Tag>{formatLabel}</Tag>}
       </div>
-      <ul className="m-0 flex list-none gap-3 px-0 py-1.5" aria-label="Players">
+      <ul className="m-0 flex list-none gap-3 px-0 py-1.5" aria-label={t('matchPlayers')}>
         {players.map((p, i) => (
           <li key={`${p.initials}-${i}`} className="flex flex-col items-center gap-1.5 text-xs font-bold text-text-muted">
             <Avatar initials={p.initials} name={p.name} tone={p.tone ?? toneCycle[i % toneCycle.length]} />
@@ -77,17 +81,17 @@ export function MatchCard({
         {Array.from({ length: spotsLeft }, (_, i) => (
           <li key={`open-${i}`} className="flex flex-col items-center gap-1.5 text-xs font-bold text-text-muted">
             <OpenSpot />
-            <span aria-hidden="true">Open</span>
+            <span aria-hidden="true">{t('matchOpen')}</span>
           </li>
         ))}
       </ul>
       <div className="mt-auto flex items-center justify-between gap-3 border-t-[1.5px] border-border pt-4">
         <p className="m-0 flex items-baseline gap-1">
           <span className="type-numeric-m leading-7">{pricePerPlayer}</span>
-          <span className="text-xs font-bold text-text-muted">per player</span>
+          <span className="text-xs font-bold text-text-muted">{t('matchPerPlayer')}</span>
         </p>
         <Button onClick={onJoin} disabled={full}>
-          {full ? 'Full' : joinLabel}
+          {full ? t('matchFull') : (joinLabel ?? t('matchJoin'))}
         </Button>
       </div>
     </article>

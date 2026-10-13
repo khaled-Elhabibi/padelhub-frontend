@@ -1,0 +1,31 @@
+/* Bahij TheSansArabic: the Arabic face. Manrope and Barlow Condensed have no Arabic glyphs, so the
+   font stacks in tokens.json list it second and the browser uses it only for Arabic characters.
+   unicode-range keeps the files from downloading on pages without Arabic text. */
+@font-face {
+  font-family: "Bahij TheSansArabic";
+  src: url("../assets/fonts/Bahij_TheSansArabic-Plain.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F;
+}
+@font-face {
+  font-family: "Bahij TheSansArabic";
+  src: url("../assets/fonts/Bahij_TheSansArabic-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F;
+}
+@font-face {
+  font-family: "Bahij TheSansArabic";
+  src: url("../assets/fonts/Bahij_TheSansArabic-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F;
+}
+@font-face {
+  font-family: "Bahij TheSansArabic";
+  src: url("../assets/fonts/Bahij_TheSansArabic-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-display: swap;
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F;
+}

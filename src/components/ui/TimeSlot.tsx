@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes } from 'react'
+import { useTranslation } from 'react-i18next'
 import { cx } from '../../lib/cx'
 
 export type SlotState = 'available' | 'peak' | 'booked'
@@ -14,12 +15,13 @@ export interface TimeSlotProps extends Omit<ButtonHTMLAttributes<HTMLButtonEleme
   compact?: boolean
 }
 
-const defaultNote: Record<SlotState, string> = { available: 'Available', peak: 'Peak', booked: 'Booked' }
+const defaultNote = { available: 'slotAvailable', peak: 'slotPeak', booked: 'slotBooked' } as const
 
 /** Bookable start time. Selected uses aria-pressed; booked is disabled and struck through. */
 export function TimeSlot({ time, state = 'available', selected = false, note, compact, className, ...props }: TimeSlotProps) {
+  const { t } = useTranslation()
   const booked = state === 'booked'
-  const label = selected && !note ? 'Selected' : (note ?? defaultNote[state])
+  const label = selected && !note ? t('slotSelected') : (note ?? t(defaultNote[state]))
 
   const tone = booked
     ? 'border-disabled-bg bg-disabled-bg text-disabled-text cursor-not-allowed'

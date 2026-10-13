@@ -13,8 +13,10 @@
   },
   "dependencies": {
     "@tanstack/react-router": "^1.170.42",
+    "i18next": "^26.4.4",
     "react": "^19.3.0",
-    "react-dom": "^19.3.0"
+    "react-dom": "^19.3.0",
+    "react-i18next": "^17.0.16"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

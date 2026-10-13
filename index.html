@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,6 +21,18 @@
         } catch (e) {}
         var dark = pref === 'dark' || (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
         document.documentElement.dataset.theme = dark ? 'dark' : 'light'
+      })()
+      // Same for language direction, so Arabic doesn't flash left-to-right.
+      // Keep in sync with src/i18n/index.ts.
+      ;(function () {
+        var lang = 'en'
+        try {
+          var v = localStorage.getItem('padelhub-lang')
+          if (v === 'en' || v === 'ar') lang = v
+          else if ((navigator.languages || []).some(function (l) { return l.toLowerCase().indexOf('ar') === 0 })) lang = 'ar'
+        } catch (e) {}
+        document.documentElement.lang = lang
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'
       })()
     </script>
   </head>
