@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { cx } from '../../lib/cx'
 import { Icon } from './Icon'
 
@@ -48,6 +49,7 @@ export function Avatar({ initials, name, tone = 'blue', size = 48, ringed, class
 }
 
 export function OpenSpot({ size = 48, className }: { size?: AvatarSize; className?: string }) {
+  const { t } = useTranslation()
   return (
     <span
       className={cx(
@@ -57,7 +59,7 @@ export function OpenSpot({ size = 48, className }: { size?: AvatarSize; classNam
       )}
     >
       <Icon name="plus" size={size >= 48 ? 20 : 16} strokeWidth={2.4} />
-      <span className="sr-only">Open spot</span>
+      <span className="sr-only">{t('avatar.openSpot')}</span>
     </span>
   )
 }

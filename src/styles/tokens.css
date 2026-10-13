@@ -152,8 +152,8 @@
 
 /* Fonts (font-display, font-sans), radii (rounded-sm|md|lg|pill) and shadows (shadow-1|2|3). Spacing uses Tailwind's 4px scale: p-4 = space-4 = 16px. */
 @theme {
-  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
-  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-display: "Barlow Condensed", "Bahij TheSansArabic", "Arial Narrow", sans-serif;
+  --font-sans: "Manrope", "Bahij TheSansArabic", system-ui, sans-serif;
   --radius-*: initial;
   --radius-sm: 8px;
   --radius-md: 14px;

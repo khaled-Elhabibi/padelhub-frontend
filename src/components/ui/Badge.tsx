@@ -1,14 +1,17 @@
 import type { ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
 import { cx } from '../../lib/cx'
 
 export type MatchStatus = 'open' | 'full' | 'confirmed' | 'almost-full' | 'cancelled'
 
-const statusStyles: Record<MatchStatus, { className: string; label: string }> = {
-  open: { className: 'bg-primary-tint text-primary-tint-text', label: 'Open' },
-  full: { className: 'bg-disabled-bg text-text', label: 'Full' },
-  confirmed: { className: 'bg-success-bg text-success', label: 'Confirmed' },
-  'almost-full': { className: 'bg-warning-bg text-warning', label: 'Almost full' },
-  cancelled: { className: 'bg-danger-bg text-danger', label: 'Cancelled' },
+type StatusKey = 'status.open' | 'status.full' | 'status.confirmed' | 'status.almostFull' | 'status.cancelled'
+
+const statusStyles: Record<MatchStatus, { className: string; label: StatusKey }> = {
+  open: { className: 'bg-primary-tint text-primary-tint-text', label: 'status.open' },
+  full: { className: 'bg-disabled-bg text-text', label: 'status.full' },
+  confirmed: { className: 'bg-success-bg text-success', label: 'status.confirmed' },
+  'almost-full': { className: 'bg-warning-bg text-warning', label: 'status.almostFull' },
+  cancelled: { className: 'bg-danger-bg text-danger', label: 'status.cancelled' },
 }
 
 export interface StatusBadgeProps {
@@ -19,6 +22,7 @@ export interface StatusBadgeProps {
 }
 
 export function StatusBadge({ status, children, className }: StatusBadgeProps) {
+  const { t } = useTranslation()
   const style = statusStyles[status]
   return (
     <span
@@ -28,12 +32,13 @@ export function StatusBadge({ status, children, className }: StatusBadgeProps) {
         className,
       )}
     >
-      {children ?? style.label}
+      {children ?? t(style.label)}
     </span>
   )
 }
 
 export interface LevelBand {
+  /** Shown as the badge's tooltip. The default bands are translated through `level.<name>` keys. */
   name: string
   /** Inclusive lower bound. */
   min: number
@@ -62,10 +67,11 @@ export interface LevelBadgeProps {
 
 /** Player level as a numeral in a pill, filled by band. Always shows the number, not only the color. */
 export function LevelBadge({ level, bands, size = 'md', className }: LevelBadgeProps) {
+  const { t } = useTranslation()
   const band = levelBand(level, bands)
   return (
     <span
-      title={band.name}
+      title={t(`level.${band.name}` as 'level.Starter', { defaultValue: band.name })}
       className={cx(
         'inline-flex items-center rounded-pill font-display font-bold tabular-nums',
         size === 'md' ? 'px-3.5 py-0.5 text-2xl leading-7' : 'px-2.5 text-lg leading-6',
